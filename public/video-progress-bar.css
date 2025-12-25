@@ -1,0 +1,210 @@
+.video-div.fullscreen .video-controls{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+}
+
+.video-div .video-controls{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    row-gap: 10px;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    padding: 10px;
+    padding-bottom: 5px;
+}
+
+.video-div .video-controls .controls-top{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.video-controls .controls-top .controls-top-left{
+    display: flex;
+    column-gap: 15px;
+    padding: 2px 20px 2px 20px;
+    border-radius: 25px;
+    background-color: rgba(15, 15, 15, 0.7);
+}
+
+.controls-top-left .play-pause{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all ease .3s;
+}
+
+.controls-top-left .play-pause:hover{
+    background-color: rgb(40, 40, 40);
+    cursor: pointer;
+}
+
+.controls-top-left i{
+    background-color: transparent;
+    font-size: 15px;
+}
+
+.controls-top-left .video-timer{
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.video-controls .controls-top .controls-top-right{
+    display: flex;
+    column-gap: 10px;
+    padding: 2px 20px 2px 20px;
+    border-radius: 25px;
+    background-color: rgba(15, 15, 15, 0.7);
+}
+
+.controls-top-right .volume, .controls-top-right .expand-minimize{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all ease .3s;
+}
+
+.controls-top-right .volume:hover, .controls-top-right .expand-minimize:hover{
+    background-color: rgb(40, 40, 40);
+    cursor: pointer;
+}
+
+.video-controls .controls-bottom{
+    width: 100%;
+    position: relative;
+}
+
+.controls-bottom .default-bar{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 25px;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.controls-bottom .progress{
+    width: 0%;
+    height: 4px;
+    background-color: red;
+    border-radius: 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.controls-bottom .progress-head{
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    cursor: pointer;
+    pointer-events: none;
+}
+
+.progress .mark{
+    width: 3px;
+    height: 10px;
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.progress .mark span{
+    position: absolute;
+    bottom: 12px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    text-shadow: 1px 1px 2px black;
+    white-space: nowrap;
+}
+
+.preview-box {
+    position: absolute;
+    bottom: 55px; /* Barın tam üstüne yerleşir */
+    left: 0;
+    width: 160px; /* Önizleme penceresi genişliği */
+    height: 90px;
+    background: #000;
+    border: 2px solid black;
+    border-radius: 3px;
+    display: none; /* Varsayılan olarak gizli */
+    pointer-events: none; /* Mouse hareketini engellememesi için */
+    transform: translateX(-50%); /* Ortalamak için */
+    z-index: 10;
+}
+
+.preview-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.preview-time {
+    position: absolute;
+    bottom: -22px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    text-shadow: 1px 1px 2px black;
+}
+
+@media(max-width: 400px){
+    .video-div .video-controls{
+        row-gap: 5px;
+        padding: 10px;
+        padding-bottom: 5px;
+    }
+
+    .video-controls .controls-top .controls-top-left{
+        display: flex;
+        column-gap: 10px;
+        padding: 2px 10px 2px 10px;
+        border-radius: 25px;
+        background-color: rgba(15, 15, 15, 0.7);
+    }
+
+    .controls-top-left .play-pause{
+        width: 30px;
+        height: 30px;
+    }
+
+    .controls-top-left i{
+        font-size: 12px;
+    }
+
+    .controls-top-left .video-timer{
+        column-gap: 5px;
+    }
+
+    .video-controls .controls-top .controls-top-right{
+        display: flex;
+        column-gap: 5px;
+        padding: 2px 10px 2px 10px;
+        border-radius: 25px;
+    }
+
+    .controls-top-right .volume, .controls-top-right .expand-minimize{
+        width: 30px;
+        height: 30px;
+    }
+}

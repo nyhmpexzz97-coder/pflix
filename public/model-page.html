@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PornFlix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/model-page.css">
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header_top"></div>
+        <div class="header_main">
+            <div class="upper_main">
+                <div class="upper_main_left">
+                    <a href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>
+                    <a href="/"><div class="logo">Porn<div class="flix">Flix</div></div></a>
+                </div>
+                <div class="upper_main_center">
+                    <i id="responsive_search" class="fa-solid fa-magnifying-glass"></i>
+                    <div class="div_search">
+                        <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search Videos" name="textbox_search" id="tb_search">
+                        <div class="search-results-container">
+                        </div>
+                    </div>
+                </div>
+                <div class="upper_main_right">
+                    <div class="account">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </div>
+                    <div class="account-container">
+                        <div class="name"></div>
+                        <div class="account-line"></div>
+                        <div class="favourite-videos"><i class="fa-solid fa-heart"></i> Favourites</div>
+                        <div class="log-out"><i class="fa-solid fa-right-to-bracket"></i> Logout</div>
+                    </div>
+                </div>
+                <div class="mobile-search-container">
+                    <div class="mobile-searchbar">
+                        <div class="div_search">
+                            <i id="search-icon2" class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" placeholder="Search Videos" name="textbox_search" id="tb_search2">
+                        </div>
+                    </div>
+                    <div class="cancel">Cancel</div>
+                    <div class="search-results-container2">
+                    </div>
+                </div>
+            </div>
+            <div class="lower_main">
+                <a href="/live">Live</a>
+                <i class="fa-solid fa-circle"></i>
+                <a href="/images">Images</a>
+                <i class="fa-solid fa-circle"></i>
+                <a href="/multilive2">Multi Live</a>
+                <i class="fa-solid fa-circle"></i>
+                <a href="/cinema">Cinema</a>
+                <i class="fa-solid fa-circle"></i>
+                <a href="/uploadReels">Upload Reels</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="container-top">
+            <img id="model-img" src="" alt="">
+            <div class="container-top-right">
+                <h1 id="model-name"></h1>
+                <div class="line"></div>
+                <div id="model-info">
+                    <h3 id="model-type"></h3>
+                    <h3 id="model-video-count"></h3>
+                </div>
+            </div>
+        </div>
+        <div class="container-bottom">
+            <div class="media-selection">
+                <div id="media-video" class="active">Videos</div>
+                <div id="media-image">Images</div>
+            </div>
+            <div class="container-content">
+                <div class="container-video">
+                    <ul id="video-list">
+                    </ul>
+                </div>
+                <div class="container-image">
+                    <ul id="collections-list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/model-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pornflix | Upload Images</title>
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/header.css">
+    <link rel="stylesheet" href="/uploadImages.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header_top"></div>
+        <div class="header_main">
+            <div class="menu">
+                <div class="menu_item_wrapper">
+                    <a href="/Videos/1"><i class="fa-brands fa-youtube"></i>   Videos</a>
+                    <hr>
+                    <a href="/Models"><i class="fa-solid fa-venus"></i>   Models</a>
+                </div>
+            </div>
+            <div class="upper_main">
+                <div class="upper_main_left">
+                    <i class="fa-solid fa-bars"></i>
+                    <a href="/"><div class="logo">Porn<div class="flix">Flix</div></div></a>
+                </div>
+                <div class="upper_main_center">
+                    <div class="container-top"></div>
+                </div>
+                <div class="upper_main_right">
+                    <div class="account">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </div>
+                    <div class="account-container">
+                        <div class="name"></div>
+                        <div class="account-line"></div>
+                        <div class="favourite-videos"><i class="fa-solid fa-heart"></i> Favourites</div>
+                        <div class="log-out"><i class="fa-solid fa-right-to-bracket"></i> Logout</div>
+                    </div>
+                </div>
+                <div class="mobile-search-container">
+                    <div class="mobile-searchbar">
+                        <div class="div_search">
+                            <i id="search-icon2" class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" placeholder="Search Videos" name="textbox_search" id="tb_search2">
+                        </div>
+                    </div>
+                    <div class="cancel">Cancel</div>
+                    <div class="search-results-container2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <form>
+            <input type="text" name="" id="model-name" placeholder="Model Name" required>
+            <input type="text" name="" id="collection" placeholder="Collection" required>
+            <input type="text" name="" id="index" placeholder="Index" required>
+            <input type="text" name="" id="url" placeholder="Image URL" required>
+            <div class="bulk">
+                <input type="checkbox" name="bulk" id="bulk">
+                <label for="bulk">Collection Upload</label>
+            </div>
+            <button type="submit" onclick="upload()">UPLOAD</button>
+        </form>
+    </div>
+
+    <script src="/uploadImages.js"></script>
+</body>
+</html>

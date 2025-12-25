@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PornFlix | MultiLive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/header2.css">
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/live_multi.css">
+</head>
+<body>
+    <div class="header">
+        <div class="header_top"></div>
+        <div class="header_main">
+            <div class="upper_main">
+                <div class="upper_main_left">
+                    <a href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>
+                    <a href="/"><div class="logo">Porn<div class="flix">Flix</div></div></a>
+                </div>
+                <div class="upper_main_center">
+                    <div class="container-top">Chaturbate Live Stream Finder</div>
+                    </div>
+                    <div class="results_div">
+                        <ul class="results_list"></ul>
+                    </div>
+                </div>
+                <div class="upper_main_right">
+                    <div class="account">
+                        <i class="fa-solid fa-circle-user"></i>
+                    </div>
+                    <div class="account-container">
+                        <div class="name"></div>
+                        <div class="account-line"></div>
+                        <div class="favourite-videos"><i class="fa-solid fa-heart"></i> Favourites</div>
+                        <div class="log-out"><i class="fa-solid fa-right-to-bracket"></i> Logout</div>
+                    </div>
+                </div>
+                <div class="mobile-search-container">
+                    <div class="mobile-searchbar">
+                        <div class="div_search">
+                            <i id="search-icon2" class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" placeholder="Search Videos" name="textbox_search" id="tb_search2">
+                        </div>
+                    </div>
+                    <div class="cancel">Cancel</div>
+                    <div class="search-results-container2">
+                        <ul class="results_list2"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="lower_main">
+                <div class="menu-wrapper">
+                    <i class="fa-solid fa-bars"></i>
+                    <div class="menu-div">Menu</div>
+                </div>
+                <ul class="directions">
+                    <div class="line"></div>
+                    <a href="/videos/1"><li class="direction"><i class="fa-brands fa-youtube"></i><span>Videos</span></li></a>
+                    <div class="line"></div>
+                    <a href="/images"><li class="direction"><i class="fa-solid fa-image"></i><span>Images</span></li></a>
+                    <div class="line"></div>
+                    <a href="/live"><li class="direction"><i class="fa-solid fa-podcast"></i><span>Live</span></li></a>
+                    <div class="line"></div>
+                    <a href="/multilive"><li class="direction"><i class="fa-solid fa-tower-broadcast"></i><span>Multi-live</span></li></a>
+                    <div class="line"></div>
+                    <a href="/multilive2"><li class="direction"><i class="fa-solid fa-tower-broadcast"></i><span>Multi-Live v2</span></li></a>
+                    <div class="line"></div>
+                    <a href="/cinema"><li class="direction"><i class="fa-solid fa-video"></i><span>Cinema</span></li></a>
+                    <div class="line"></div>
+                    <a href="/upload"><li class="direction"><i class="fa-solid fa-cloud-arrow-up"></i><span>Upload Videos</span></li></a>
+                    <div class="line"></div>
+                    <a href="/uploadImages"><li class="direction"><i class="fa-solid fa-cloud-arrow-up"></i><span>Upload Images</span></li></a>
+                    <div class="line"></div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <video id="videoPlayer" controls poster="https://static.gameloop.com/img/60fb82457e7621b7c8598733b0b07493.jpg?imageMogr2/thumbnail/undefinedx266/format/webp">
+          </video>
+    </div>
+    <div class="container-lower">
+        <h2>Select Streamers</h2>
+        <div class="streamers-list">
+        </div>
+        <div class="offset-wrapper">
+            <div id="offset-div" class="input-container">
+                <input id="offset" placeholder="Offset" type="text" />
+            </div>
+            <div class="watch_button_wrapper">
+                <button class="button watch_button" onclick="getM3U8Links()">GO!</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="/live_multi.js"></script>
+    <script src="/header.js"></script>
+</body>
+</html>

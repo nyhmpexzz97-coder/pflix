@@ -1,0 +1,107 @@
+h1{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: red;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.slideshow{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.slideshow-inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5px;
+    background-color: red;
+    border-radius: 5px;
+    padding: 5px;
+    transition: all ease .3s;
+}
+
+.slideshow-inner:hover{
+    cursor: pointer;
+    background-color: rgb(158, 0, 0);
+}
+
+.slideshow-inner span{
+    background-color: transparent;
+    color: rgb(15, 15, 15);
+    font-weight: 600;
+}
+
+.slideshow-inner i{
+    background-color: transparent;
+    color: rgb(15, 15, 15);
+    font-weight: 600;
+}
+
+.container{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#collections-list{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 20px;
+    row-gap: 20px;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+}
+
+.collection{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.thumbnail{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+}
+
+.collection img{
+    width: 100%;
+    
+    border-radius: 30px;
+}
+
+.collection .name{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+    padding: 5px 15px 5px 15px;
+    border-radius: 30px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    border: 2px solid black;
+}
+
+@media(max-width: 400px){
+    #collections-list{
+        grid-template-columns: auto;
+        column-gap: 0px;
+        row-gap: 10px;
+    }
+  }

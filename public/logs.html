@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Log Viewer</title>
+    <style>
+        #logOutput {
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 400px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Real-Time Log Viewer</h2>
+    <div id="logOutput"></div>
+
+<script>
+    // WebSocket bağlantısını aç
+    const ws = new WebSocket('ws://213.238.182.127:8080');
+
+    // WebSocket bağlantısı açıldığında çalışacak fonksiyon
+    ws.onopen = function() {
+        console.log('WebSocket bağlantısı başarıyla kuruldu.');
+        // Bağlantı başarıyla kurulduğunda kullanıcıya bir mesaj gösterebilirsiniz
+        alert('WebSocket bağlantısı kuruldu!');
+    };
+
+    // WebSocket üzerinden mesaj alındığında çalışacak fonksiyon
+    ws.onmessage = function(event) {
+        const logOutput = document.getElementById('logOutput');
+        logOutput.textContent += event.data;  // Log mesajını ekle
+        logOutput.scrollTop = logOutput.scrollHeight;  // Sayfa kaydırma
+    };
+
+    // Hata durumunda çalışacak fonksiyon
+    ws.onerror = function(error) {
+        console.error('WebSocket hatası:', error);
+    };
+
+    // WebSocket bağlantısı kapandığında çalışacak fonksiyon
+    ws.onclose = function() {
+        console.log('WebSocket bağlantısı kapandı.');
+    };
+</script>
+
+</body>
+</html>

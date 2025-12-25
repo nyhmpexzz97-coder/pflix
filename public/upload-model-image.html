@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
+
+</head>
+<body>
+    <a href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>
+    <input type="text" id="imageUrl" placeholder="Resim URL'si girin..." />
+<button id="loadBtn">Yükle</button>
+
+<div style="width:300px; height:300px; margin-top:10px;">
+    <img id="image" style="max-width:100%; display:none;" />
+</div>
+
+<button id="cropBtn" style="margin-top:10px;">Kırp ve Yükle</button>
+
+<!-- Cropper.js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+<script>
+let cropper;
+
+document.getElementById("loadBtn").addEventListener("click", () => {
+    const url = document.getElementById("imageUrl").value;
+    const img = document.getElementById("image");
+
+    img.src = url;
+    img.style.display = "block";
+
+    img.onload = () => {
+        // Eski cropper varsa yok eder
+        if (cropper) cropper.destroy();
+
+        // Yeni cropper oluşturur → tamamen manuel
+        cropper = new Cropper(img, {
+            aspectRatio: 1,         // Kare kırpma çerçevesi
+            viewMode: 2,
+            dragMode: "move",       // Kullanıcı resmi tutup sürükleyebilir
+            autoCrop: true,         // Sadece çerçeveyi gösterir (otomatik kırpma yok!)
+            zoomable: true,         // Kullanıcı yakınlaştırabilir
+            movable: true,          // Kullanıcı resmi hareket ettirebilir
+            scalable: false,
+            cropBoxResizable: true, // Kırpma kutusu kullanıcı tarafından boyutlandırılabilir
+            cropBoxMovable: true
+        });
+    };
+});
+
+document.getElementById("loadBtn").addEventListener("click", () => {
+    const url = document.getElementById("imageUrl").value;
+
+    fetch("/fetch-image", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url })
+    })
+    .then(res => res.json())
+    .then(data => {
+        const img = document.getElementById("image");
+        img.src = data.localPath;
+
+        img.onload = function() {
+            if (cropper) cropper.destroy();
+            cropper = new Cropper(img, { aspectRatio: 1 });
+        };
+    });
+});
+
+document.getElementById("cropBtn").addEventListener("click", () => {
+    if (!cropper) return;
+
+    cropper.getCroppedCanvas({
+        width: 512,
+        height: 512
+    }).toBlob((blob) => {
+
+        const formData = new FormData();
+        formData.append("file", blob, "cropped.png");
+
+        fetch("/upload-cropped", {
+            method: "POST",
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            
+            // Yeni resmi ekrana koy (eskiyi değiştir)
+            const img = document.getElementById("image");
+            img.src = data.path + "?t=" + Date.now();  // cache’i aşmak için
+            
+            // Cropper'ı kapat ve yeni resim üzerinde yeniden başlat
+            cropper.destroy();
+            cropper = new Cropper(img, {
+                aspectRatio: 1
+            });
+        });
+    });
+});
+
+
+</script>
+
+
+</body>
+</html>

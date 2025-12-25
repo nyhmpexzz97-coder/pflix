@@ -1,0 +1,420 @@
+body{
+    background-color: rgb(15, 15, 15);
+}
+
+.container{
+    width: 100%;
+    padding: 20px 40px 20px 40px;
+    display: flex;
+    column-gap: 20px;
+}
+
+.container-left{
+    width: 70%;
+}
+
+.container-left .video-div{
+    width: 100%;
+    min-width: 1114px;
+    min-height: 626px;
+    background-color: black;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-left video{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.container-right{
+    width: 30%;
+    background-color: rgb(10, 10, 10);
+    border-radius: 10px;
+}
+
+.video-info{
+    width: 100%;
+    display: flex;
+    column-gap: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgb(10, 10, 10);
+    border-radius: 10px;
+}
+
+.video-info .info-left{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.info-left img{
+    width: 100%;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.info-right{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding-top: 20px;
+    background-color: transparent;
+}
+
+.info-right .model-name{
+    color: red;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.info-right .title{
+    font-weight: 400;
+    background-color: transparent;
+}
+
+.info-right .tags-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tags-section h3{
+    color: red;
+}
+
+.tags-section .tags{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.video-additionals{
+    width: 100%;
+    background-color: rgb(10, 10, 10);
+    border-radius: 10px;
+}
+
+.additionals-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    list-style-type: none;
+    background-color: transparent;
+    padding: 20px;
+}
+
+.additional{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all ease .5s;
+}
+
+.additional:hover{
+    background-color: rgb(20, 20, 20);
+}
+
+.additional img{
+    width: 200px;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.additional h1{
+    color: red;
+    background-color: transparent;
+}
+
+/*RIGHT SIDE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.related-videos{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: transparent;
+}
+
+.related-list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    list-style-type: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+.related-item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    column-gap: 5px;
+    background-color: transparent;
+}
+
+.related-item .top{
+    width: 100%;
+    background-color: transparent;
+}
+
+.related-item .top .video-player{
+    width: 100%;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.related-item .bottom{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    background-color: transparent;
+}
+
+.related-videos .bottom .left{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.bottom .left img{
+    width: 95%;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.bottom .right{
+    width: 70%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    background-color: transparent;
+}
+
+.bottom .right .model-name{
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.bottom .right .line{
+    width: 100%;
+    height: 2px;
+    background-color: red;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    background-color: transparent;
+}
+
+.bottom .right .title{
+    display: -webkit-box;           /* Webkit için kutu modelini ayarlıyoruz */
+    -webkit-line-clamp: 3;          /* Satır sayısını sınırlıyoruz (3 satır) */
+    -webkit-box-orient: vertical;   /* Satırları dikey yönlendirme */
+    overflow: hidden;               /* Fazla yazıyı gizliyoruz */
+    text-overflow: ellipsis;
+    background-color: transparent;
+}
+
+.update-wrapper{
+    width: 100%;
+    padding: 20px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+input{
+    width: 30%;
+    height: 54px;
+    font-size: 20px;
+    line-height: 50px;
+    padding-left: 10px;
+    outline: none;
+    border: 1px red solid;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: transparent;
+}
+
+.update{
+    width: 70px;
+    height: 54px;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+    background-color: red;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all ease .5s;
+}
+
+.update:hover{
+    background-color: rgb(144, 2, 2);
+}
+
+@media(max-width: 400px){
+    .container{
+        padding: 15px 5px 5px 5px;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .container-left{
+        width: 100%;
+    }
+
+    .container-left .video-div{
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .container-right{
+        width: 100%;
+    }
+
+    .video-info{
+        column-gap: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .video-info .info-left{
+        width: 100%;
+    }
+
+    .info-left img{
+        width: 200px;
+    }
+
+    .info-right{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        padding-top: 0px;
+    }
+
+    .info-right .model-name{
+        text-align: center;
+    }
+
+    .info-right .title{
+        font-size: 18px;    
+    }
+
+    .additionals-list{
+        row-gap: 20px;
+        padding: 10px;
+    }
+
+    .additional{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 0px;
+        border-radius: 10px;
+        transition: all ease .5s;
+    }
+
+    .additional:hover{
+        background-color: rgb(20, 20, 20);
+    }
+
+    .additional img{
+        width: 200px;
+        border-radius: 50%;
+        background-color: transparent;
+    }
+
+    .related-videos{
+        padding: 10px;
+    }
+
+    .related-list{
+        row-gap: 30px;
+    }   
+
+    .related-item .top .video-player{
+        border-radius: 5px;
+    }
+
+    .related-videos .bottom .left{
+        width: 30%;
+    }
+
+    .bottom .left img{
+        width: 95%;
+    }
+
+    .bottom .right{
+        width: 70%;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2px;
+        background-color: transparent;
+    }
+
+    .bottom .right .model-name{
+        padding-top: 7px;
+        color: red;
+        font-size: 18px;
+    }
+
+    .bottom .right .line{
+        height: 0px;
+    }
+
+    .bottom .right .title{
+        font-size: 14px;
+        line-height: 20px;
+        display: -webkit-box;           /* Webkit için kutu modelini ayarlıyoruz */
+        -webkit-line-clamp: 3;          /* Satır sayısını sınırlıyoruz (3 satır) */
+        -webkit-box-orient: vertical;   /* Satırları dikey yönlendirme */
+        overflow: hidden;               /* Fazla yazıyı gizliyoruz */
+        text-overflow: ellipsis;
+        background-color: transparent;
+    }
+
+    input{
+        width: 100%;
+    }
+
+    .update{
+        width: 100px;
+    }
+}

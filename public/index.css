@@ -1,0 +1,257 @@
+.video-count-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.video-count{
+    font-size: 30px;
+    font-weight: 700;
+    color: red;
+}
+
+ul{
+    list-style: none;
+    width: 100%;
+    padding: 50px;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 30px;
+}
+
+.list-item{
+    width: 100%;
+    background-color: #080808;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 57px;
+    overflow: hidden;
+    transition: all ease .3s;
+}
+
+.list-item h2{
+    background-color: #080808;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    color: red;
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.list-item h2 h3{
+    background-color: transparent;
+    font-size: 20px;
+    color: silver;
+}
+
+.videos{
+    display: grid;
+    grid-template-columns: 490px 490px 490px;
+    column-gap: 20px;
+    row-gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.reels{
+    padding: 5px;
+}
+
+.video{
+    border-radius: 7px;
+    transition: all ease .3s;
+}
+
+.video a{
+    max-height: 274px;
+    display: flex;
+    row-gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.video a .title{
+    max-width: 98%;
+    font-weight: 400;
+    background-color: transparent;
+    position: absolute;
+    padding: 5px;
+    left: 5px;
+    bottom: 5px;
+    backdrop-filter: blur(60px);
+    border-radius: 10px;
+}
+
+.reels .video a .title{
+    display: none;
+}
+
+.video a .preview{
+    width: 100%;
+    max-height: 274px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reels .video a .preview{
+    width: 400px;
+    height: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video a .preview video{
+    width: 100%;
+    max-height: 274px;
+    border-radius: 5px;
+}
+
+.reels .video a .preview video{
+    width: 400px;
+    height: unset;
+    border-radius: 5px;
+}
+
+.video:hover{
+    background-color: #181818;
+}
+
+.preview-container{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    z-index: 999999999;
+}
+
+.preview-inner-container{
+    width: 800px;
+    height: 450px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 300px 300px rgba(0, 0, 0, 1);
+    position: relative;
+}
+
+.preview{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.preview-inner-container i{
+    font-size: 30px;
+    color: red;
+    background: transparent;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.video a{
+    background-color: transparent;
+}
+
+.preview-inner-container video:fullscreen {
+    object-fit:cover;
+  }
+
+@media(max-width: 400px){
+    ul{
+        padding: 0px;
+        padding-top: 30px;
+    }
+
+    li{
+        padding: 0px;
+    }
+
+    .videos{
+        grid-template-columns: auto;
+        row-gap: 20px;
+        width: 100%;
+        padding: 0px;
+        background-color: #080808;
+    }
+
+    .reels{
+        row-gap: 2px;
+    }
+
+    .video{
+        width: 100%;
+        padding: 5px;
+        box-shadow: 1px -10px 109px -5px rgba(161,0,0,0.75) inset;
+    }
+
+    .reels .video{
+        width: 370px;
+        padding: 0px;
+        box-shadow: none;
+    }
+
+    .video a .preview{
+        width: 370px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        height: unset;
+    }
+
+    .video a .preview video{
+        width: 100%;
+        border-radius: 5px;
+        background-color: transparent;
+        height: unset;
+    }
+
+    .reels .video a .preview video{
+        width: 370px;
+    }
+
+    .preview-inner-container{
+        width: 370px;
+        height: 208px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 100px 100px rgba(0, 0, 0, 1);
+        position: relative;
+    }
+
+    .preview{
+        border-radius: 10px;
+    }
+
+    .preview-inner-container i{
+        font-size: 25px;
+        color: red;
+        background: transparent;
+        position: absolute;
+        top: 3px;
+        right: 5px;
+    }
+}

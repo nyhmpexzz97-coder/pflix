@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PornFlix | SlideShow</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            overflow-y: hidden;
+        }
+        .wrapper{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="wrapper"><img id="img" style="height: 100vh;" src="" alt=""></div>
+
+    <script>
+        const imageElement = document.getElementById('img');
+
+        if(window.innerHeight > window.innerWidth){
+            imageElement.style.height = 'unset';
+            imageElement.style. width = '100%';
+        }
+        else{
+            imageElement.style.height = '100vh';
+            imageElement.style. width = 'unset';
+        }
+
+        const url = window.location.pathname;
+        const parts = url.split('/');
+        const modelNameRaw = parts[parts.length - 1];
+        const modelName = modelNameRaw.replace("+", " ");
+        
+        let images = [];
+        
+        async function getImages() {
+            try {
+                const response = await fetch('/get-model-all-images', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ modelName })
+                });
+                const data = await response.json();
+
+                data.images.forEach(image => {
+                    images.push(image.URL);
+                });
+
+            } catch (error) {
+                
+            }
+        }
+        
+        let currentIndex = 0;
+        let intervalId = null;
+
+        function changeImage() {
+            imageElement.src = images[currentIndex];
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        imageElement.addEventListener('click', ()=>{
+            if (intervalId === null) {
+                console.log('başlat');
+                
+                intervalId = setInterval(changeImage, 2000);
+            } else {
+                console.log('durdur');
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        })
+
+        async function startShow() {
+            await getImages();
+
+            changeImage();
+
+            intervalId = setInterval(changeImage, 2000);
+        }
+
+        startShow();
+    </script>
+</body>
+</html>
