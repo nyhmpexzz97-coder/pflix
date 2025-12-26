@@ -123,6 +123,13 @@ const imageSchema = new mongoose.Schema({
 
 const Images = mongoose.model('image', imageSchema);
 
+const aiSchema = new mongoose.Schema({
+    name: String,
+    URL: String,
+});
+
+const AIs = mongoose.model('ai', aiSchema);
+
 function formatString(str) {
   // Türkçe karakterleri de düzgün işlemek için küçültme
   str = str.toLowerCase()
@@ -540,6 +547,14 @@ app.get('/slideshow-general', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'slideshow-general.html'));
 });
 
+app.get('/ai', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ai-general.html'));
+});
+
+app.get('/ai/:modelName', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'ai.html'));
+});
+
 app.get('/upload', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'upload_video.html'));
 });
@@ -806,6 +821,34 @@ app.get('/get-models-names', async (req, res) => {
       res.json({ images });
     } catch (error) {
       res.status(500).json({ message: "Bir hata oluştu.", error });
+    }
+});
+
+app.get('/get-ai-models', async (req, res) => {
+    try {
+      const ais = await AIs.distinct('name');
+
+      res.json({ ais });
+    } catch (error) {
+      res.status(500).json({ message: "Bir hata oluştu.", error });
+    }
+});
+
+app.post('/get-ai-content', async (req, res) => {
+    const { name } = req.body;
+
+    if (!name) {
+        return res.status(400).json({ message: 'Parameter missing!' });
+    }
+    
+    try {
+        const ai = await AIs.find({
+          "name": name
+        }).sort({index: 1});
+        
+        res.json({ exists: !!name, content: ai});
+    } catch (error) {
+        res.status(500).json({ message: 'Bir hata oluştu.', error });
     }
 });
 
@@ -1257,16 +1300,16 @@ async function updateVideoLinks() {
   try {
     console.log("here");
     
-    const models = await Models.find();
+    const images = await Images.find();
 
-    for (const model of models) {
+    for (const image of images) {
 
-      const newPreview = model.image.replace(
+      const newPreview = image.URL.replace(
         /^https:\/\/f\d+\.backblazeb2\.com\/file\/[^/]+/,
         'https://pflixbucket.s3.eu-central-003.backblazeb2.com'
       );
-      model.image = newPreview;
-      await model.save();
+      image.URL = newPreview;
+      await image.save();
       console.log(newPreview);
       
     }

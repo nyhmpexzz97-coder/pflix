@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PornFlix | Faceswap</title>
+    <link rel="stylesheet" href="/base.css">
+    <style>
+        .list{
+            list-style-type: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 5px;
+            overflow-x: hidden;
+            padding: 0;
+        }
+        .list::-webkit-scrollbar {
+            width: 0px;  /* Webkit tabanlı tarayıcılarda scrollbar genişliğini 0px yapar */
+            height: 0px; /* Webkit tabanlı tarayıcılarda yatay scrollbar'ı gizler */
+        }
+        .item{
+            height: 100vh;
+        }
+        .item img{
+            height: 100vh;
+        }
+        .item video{
+            height: 100vh;
+        }
+
+        @media (max-width: 400px){
+            .item{
+                height: unset;
+                width: 100%;
+            }
+            .item img{
+                height: unset;
+                width: 100%;
+            }
+            .item video{
+                height: unset;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="list">
+        </ul>
+    </div>
+    
+    <script>
+        const url = window.location.pathname;
+        const parts = url.split('/');
+        const modelName = parts[2];
+        let name = decodeURIComponent(modelName.replace(/\+/g, ' '));
+        console.log(modelName, name);
+
+        const list = document.querySelector('.list');
+        
+        let contents = [];
+        
+        async function getImages() {
+            try {
+                const response = await fetch('/get-ai-content', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name })
+                });
+                const data = await response.json();
+                data.content.forEach(element => {
+                    const li = document.createElement('li');
+                    li.classList.add('item');
+                    if(element.URL.endsWith(".mp4")){
+                        li.innerHTML = `<video muted loop autoplay src="${element.URL}"></video>`;
+                    }
+                    else{
+                        li.innerHTML = `<img src="${element.URL}" alt="">`;
+                    }
+                    list.appendChild(li);
+                });
+            } catch (error) {
+                
+            }
+        }
+        getImages();
+    </script>
+</body>
+</html>
